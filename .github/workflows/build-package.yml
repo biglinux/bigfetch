@@ -20,7 +20,7 @@ jobs:
         shell: bash
         run: |
           sudo apt update
-          sudo apt install -y git jp2a
+          sudo apt install -y git jp2a fortune-mod
           
           IFS=$'\n'
           for i in $(ls logos); do
@@ -48,8 +48,8 @@ jobs:
         run: |
           cd phrases
           strfile bigfetch-ptbr
-          strfile bigfetch-en
-          strfile bigfetch-es
+          # strfile bigfetch-en
+          # strfile bigfetch-es
           cd ..
           cp phrases/* usr/share/fortune/
 
