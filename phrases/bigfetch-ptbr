@@ -38,7 +38,7 @@ Para ver os processos em execução, use ps. Exemplo: ps aux
 %
 Utilize kill para encerrar processos. Exemplo: kill PID
 %
-Use top para monitorar os processos em execução em tempo real
+Use htop para monitorar os processos em execução em tempo real
 %
 Para verificar as informações de hardware, use lshw
 %
