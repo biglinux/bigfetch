@@ -31,7 +31,7 @@ jobs:
             jp2a --colors --chars=' #' --width=50 --output=$file "logos/$i"
             
             # Adicionar informações a arte ascii
-            sed -i -e '1i\' -e 'começo do arquivo' $file
+            sed -i -e '1i\' -e '' $file
             sed -i '5s/$/       OS: $(grep -E '\''\\bNAME='\'' \/etc\/os-release | cut -d "=" -f2 | sed '\''s\/\\\"\/\/g'\'')/' $file
             sed -i '6s/$/       Kernel: $(uname -r)/' $file
             sed -i '7s/$/       Uptime: $(uptime -p | sed '\''s\/up \/\/'\'')/' $file
