@@ -2,7 +2,7 @@
 
 pkgname=bigfetch
 pkgdesc="A CLI system information tool written in BASH."
-# depends=('')
+depends=('fortune-mod')
 # makedepends=('')
 # conflicts=('')
 pkgver=$(date +%y.%m.%d)

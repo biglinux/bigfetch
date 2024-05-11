@@ -42,6 +42,16 @@ jobs:
             sed -i '12s/$/       GPU:$(\/usr\/share\/bigfetch\/gpu.sh)/' $file
             sed -i '13s/$/       Memory: $(free -h | awk '\''NR==2{print $2}'\'')/' $file
           done
+          
+      - name: Fortune
+        shell: bash
+        run: |
+          cd phrases
+          strfile bigfetch-ptbr
+          strfile bigfetch-en
+          strfile bigfetch-es
+          cd ..
+          cp phrases/* usr/share/fortune/
 
       - name: Update github
         run: |

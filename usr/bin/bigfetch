@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+# Print logo
 os=$(grep -E '\bNAME=' /etc/os-release | cut -d "=" -f2 | sed 's/"//g')
 os=${os,,}
 eval "echo \"$(cat /usr/share/bigfetch/ascii/${os}.txt)\""
+
+# Print Phrase
+#Detect language of quote
+echo
+echo "Dica do Dia:"
+if [ "$(grep LANG= /etc/locale.conf | grep pt)" != "" ]; then
+  echo "$(/usr/bin/fortune biglinux-ptbr)"
+elif [ "$(grep LANG= /etc/locale.conf | grep es)" != "" ]; then
+  echo "$(/usr/bin/fortune biglinux-es)"
+else
+  echo "$(/usr/bin/fortune biglinux-en)"
+fi
