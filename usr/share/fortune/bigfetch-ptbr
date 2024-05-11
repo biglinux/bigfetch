@@ -72,10 +72,6 @@ Utilize passwd para alterar a senha de um usuário. Exemplo: passwd usuario
 %
 Use sudo para executar comandos com privilégios de superusuário
 %
-Utilize apt-get ou apt para gerenciar pacotes em sistemas baseados em Debian. Exemplo: sudo apt-get install pacote
-%
-Para sistemas baseados em Red Hat, use yum ou dnf para gerenciar pacotes
-%
 Utilize ssh para se conectar a um servidor remoto. Exemplo: ssh usuario@servidor
 %
 Use scp para transferir arquivos de ou para um servidor remoto. Exemplo: scp arquivo.txt usuario@servidor:/diretorio
