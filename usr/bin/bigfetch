@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 
+IFS=$'\n'
+
 # Print logo
 os=$(grep -E '\bNAME=' /etc/os-release | cut -d "=" -f2 | sed 's/"//g')
+if [ -n "$(grep -i biglinux <<< $os)" ]; then
+  os=biglinux
+fi
 os=${os,,}
 eval "echo \"$(cat /usr/share/bigfetch/ascii/${os}.txt)\""
+
+unset IFS
 
 # Print Phrase
 #Detect language of quote
