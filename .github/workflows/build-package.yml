@@ -12,23 +12,23 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      # Tmate ##
-      - name: Setup TMATE Session
-        uses: mxschmitt/action-tmate@v3
+      # ## Tmate ##
+      # - name: Setup TMATE Session
+      #   uses: mxschmitt/action-tmate@v3
 
       - name: Generate ascii arts
         shell: bash
         run: |
-          sudo apt-get update
-          sudo apt-get install git jp2a
+          sudo apt update
+          sudo apt install -y git jp2a
           
-          cd logos
-          for i in *.png; do
+          IFS=$'\n'
+          for i in $(ls logos); do
             name=$(sed 's/\..*//' <<< $i)
             name=${name,,}
             file=usr/share/bigfetch/ascii/$name.txt
             # Criar arte em ascii a partir de uma imagem
-            sudo jp2a --colors --chars=' #' --width=50 --output=$file $i
+            jp2a --colors --chars=' #' --width=50 --output=$file "logos/$i"
             
             # Adicionar informações a arte ascii
             sed -i '5s/$/       OS: $(grep -E '\''\\bNAME='\'' \/etc\/os-release | cut -d "=" -f2 | sed '\''s\/\\\"\/\/g'\'')/' $file
