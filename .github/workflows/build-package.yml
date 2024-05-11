@@ -21,9 +21,10 @@ jobs:
           cd logos
           for i in *.png; do
             name=$(sed 's/\..*//' <<< $i)
+            name=${name,,}
             file=usr/share/bigfetch/ascii/$name.txt
             # Criar arte em ascii a partir de uma imagem
-            jp2a --colors --chars=' #' --width=50 --output=$file $i
+            sudo jp2a --colors --chars=' #' --width=50 --output=$file $i
             
             # Adicionar informações a arte ascii
             sed -i '5s/$/       OS: $(grep -E '\''\\bNAME='\'' \/etc\/os-release | cut -d "=" -f2 | sed '\''s\/\\\"\/\/g'\'')/' $file
