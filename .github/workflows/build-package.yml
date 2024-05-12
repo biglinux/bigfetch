@@ -41,7 +41,7 @@ jobs:
             
             # Adicionar informações a arte ascii
             sed -i -e '1i\' -e '' $file
-            sed -i '5s/$/       $(echo -e "'$gre'")OS:$(echo -e "\e[32m") $(grep -E '\''\\bNAME='\'' \/etc\/os-release | cut -d "=" -f2 | sed '\''s\/\\\"\/\/g'\'')/' $file
+            sed -i '5s/$/       $(echo -e "\'$gre'")OS:$(echo -e "\\e[0m") $(grep -E '\''\\bNAME='\'' \/etc\/os-release | cut -d "=" -f2 | sed '\''s\/\\\"\/\/g'\'')/' $file
             sed -i '6s/$/       Kernel: $(uname -r)/' $file
             sed -i '7s/$/       Uptime: $(uptime -p | sed '\''s\/up \/\/'\'')/' $file
             sed -i '8s/$/       Resolution: $(\/usr\/share\/bigfetch\/resolution.sh)/' $file
