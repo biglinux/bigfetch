@@ -39,7 +39,7 @@ jobs:
             cya='\e[36;1m'                  # Ciano
             neg='\e[37;1m'                  # Negrito
             
-            color="$gre"
+            color="$cya"
             
             # Adicionar informações a arte ascii
             sed -i -e '1i\' -e '' $file
