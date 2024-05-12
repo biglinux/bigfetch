@@ -44,14 +44,14 @@ jobs:
             # Adicionar informações a arte ascii
             sed -i -e '1i\' -e '' $file
             sed -i '5s/$/       $(echo -e "\'$color'")OS:$(echo -e "\\e[0m") $(grep -E '\''\\bNAME='\'' \/etc\/os-release | cut -d "=" -f2 | sed '\''s\/\\\"\/\/g'\'')/' $file
-            sed -i '6s/$/       Kernel:$(echo -e "\\e[0m") $(uname -r)/' $file
-            sed -i '7s/$/       Uptime:$(echo -e "\\e[0m") $(uptime -p | sed '\''s\/up \/\/'\'')/' $file
-            sed -i '8s/$/       Resolution:$(echo -e "\\e[0m") $(\/usr\/share\/bigfetch\/resolution.sh)/' $file
-            sed -i '9s/$/       DE:$(echo -e "\\e[0m") $(\/usr\/share\/bigfetch\/de.sh)/' $file
-            sed -i '10s/$/       Session Type:$(echo -e "\\e[0m") $(if [ "$XDG_SESSION_TYPE" = "x11" ];then echo Xorg; else echo $XDG_SESSION_TYPE; fi)/' $file
-            sed -i '11s/$/       CPU:$(echo -e "\\e[0m")$(grep "model name" \/proc\/cpuinfo | head -n1 | cut -d ":" -f2)/' $file
-            sed -i '12s/$/       GPU:$(echo -e "\\e[0m")$(\/usr\/share\/bigfetch\/gpu.sh)/' $file
-            sed -i '13s/$/       Memory:$(echo -e "\\e[0m") $(free -h | awk '\''NR==2{print $2}'\'')/' $file
+            sed -i '6s/$/       $(echo -e "\'$color'")Kernel:$(echo -e "\\e[0m") $(uname -r)/' $file
+            sed -i '7s/$/       $(echo -e "\'$color'")Uptime:$(echo -e "\\e[0m") $(uptime -p | sed '\''s\/up \/\/'\'')/' $file
+            sed -i '8s/$/       $(echo -e "\'$color'")Resolution:$(echo -e "\\e[0m") $(\/usr\/share\/bigfetch\/resolution.sh)/' $file
+            sed -i '9s/$/       $(echo -e "\'$color'")DE:$(echo -e "\\e[0m") $(\/usr\/share\/bigfetch\/de.sh)/' $file
+            sed -i '10s/$/       $(echo -e "\'$color'")Session Type:$(echo -e "\\e[0m") $(if [ "$XDG_SESSION_TYPE" = "x11" ];then echo Xorg; else echo $XDG_SESSION_TYPE; fi)/' $file
+            sed -i '11s/$/       $(echo -e "\'$color'")CPU:$(echo -e "\\e[0m")$(grep "model name" \/proc\/cpuinfo | head -n1 | cut -d ":" -f2)/' $file
+            sed -i '12s/$/       $(echo -e "\'$color'")GPU:$(echo -e "\\e[0m")$(\/usr\/share\/bigfetch\/gpu.sh)/' $file
+            sed -i '13s/$/       $(echo -e "\'$color'")Memory:$(echo -e "\\e[0m") $(free -h | awk '\''NR==2{print $2}'\'')/' $file
           done
           
       - name: Fortune
