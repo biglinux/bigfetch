@@ -2,7 +2,7 @@
 
 if [ "$XDG_CURRENT_DESKTOP" = "KDE" ]; then
     de="KDE Plasma"
-    deVersion=$(plasmashell --version 2> /dev/null | awk '{print $2}') 2> /dev/null
+    deVersion=$(pacman -Q | awk '/plasma-desktop/ {split($2, a, "-"); print a[1]}')
 elif [ "$XDG_CURRENT_DESKTOP" = "GNOME" ]; then
     de=Gnome
     deVersion=$(gnome-shell --version 2> /dev/null | awk '{print $3}') 2> /dev/null
